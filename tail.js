@@ -3,6 +3,7 @@ const assertEqual = function(actual, expected) {
   console.log((actual === expected) ? `🟢🟢🟢 Assertion Passed: ${actual} === ${expected}` : `🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
 };
 
+// Function that returns all the elements of the array minus the first
 const tail = arr => arr.slice(1);
 
 
