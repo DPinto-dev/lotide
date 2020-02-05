@@ -13,7 +13,6 @@ const countLetters = str => {
 };
 
 
-console.log(countLetters("Di    ogo"));
 const result = countLetters("lighthouse in the house");
 assertEqual(result["h"], 4);
 assertEqual(result["o"], 2);
