@@ -1,9 +1,8 @@
-// 36
 const assertEqual = function(actual, expected) {
   console.log((actual === expected) ? `🟢🟢🟢 Assertion Passed: ${actual} === ${expected}` : `🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
 };
 
-// Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.f\
+// Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.
 const eqArrays = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
   for (let i = 0; i < arr1.length; i++) {
