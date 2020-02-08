@@ -29,3 +29,19 @@ const flatten = arr => {
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]); // passes
 assertArraysEqual(flatten([1, 2, 3, ["a", "b", "c"], 4, 5, 6, 7, ["h", "i"]]), [ 1, 2, 3, 'a', 'b', 'c', 4, 5, 6, 7, 'h', 'i']); // passes
 
+// Created flattenDeep which uses recursion to flatten nested arrays
+let flattenDeep = arr => {
+  let output = [];
+  for (let el of arr) {
+    if (Array.isArray(el)) {
+      output = output.concat(flattenDeep(el)); //Array.concat()
+    } else {
+      output.push(el);; //Base Case is that el is not an Array.
+    }
+  }
+  return output;
+}
+
+
+assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]); // passes
+assertArraysEqual(flatten([1, 2, 3, ["a", "b", "c"], 4, 5, 6, 7, ["h", "i"]]), [ 1, 2, 3, 'a', 'b', 'c', 4, 5, 6, 7, 'h', 'i']); // passes
