@@ -2,23 +2,27 @@ const assertEqual = function(actual, expected) {
   console.log((actual === expected) ? `🟢🟢🟢 Assertion Passed: ${actual} === ${expected}` : `🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
 };
 
-// Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.
+// Recursive implementation
 const eqArrays = (arr1, arr2) => {
-  if (arr1.length !== arr2.length) return false;
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
+  if (arr1.length !== arr2.length) {
+    return false;
+  } else {
+    for (let i = 0; i < arr1.length; i++) {
+      if (Array.isArray(arr1[i])) {
+        if (!eqArrays(arr1[i], arr2[i])) {
+          return false;
+        }      
+      } 
+      // Base Case is a linear array. If so, check each item 
+      else if (arr1[i] !== arr2[i]) { 
+        return false;
+      } 
+    }
   }
   return true;
 };
 
-
-
 // Tests
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => true
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]),false);
-
-// console.log(eqArrays([1, 2, 3], [1, 2, 3])) // => true
-// console.log(eqArrays([1, 2, 3], [3, 2, 1]) )// => false
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])) // => true
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", 3]) )// => false
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true); // => true
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false); // => false
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false); // => false
