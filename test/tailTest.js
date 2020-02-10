@@ -1,22 +1,12 @@
+const assert = require('chai').assert;
 const tail = require('../tail');
-const assertEqual = require('../assertEqual');
-
-let result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2);
-assertEqual(result[0], "Lighthouse");
-assertEqual(result[1], "Labs");
-
-result = result.join('');
-assertEqual(result, ["Lighthouse", "Labs"].join(''));
-
-// Test Case: Check the original array
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 3 elements!
-
-// Test Case: array with only one element
-assertEqual(tail(["Hello"]).length, 0);
-
-// Test Case: the tail of an empty array should be an empty array
-// console.log("tail of [] should be []", tail([]));
-assertEqual(tail([]).length, 0);
+describe('#tail', () => {
+  it('returns ["Lighthouse", "Labs"] for ["Hello", "Lighthouse", "Labs"]',
+    () => assert.deepEqual(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]));
+  it('return 2 for the length of ["Yo Yo", "Lighthouse", "Labs"]',
+    () => assert.strictEqual(tail(["Yo Yo", "Lighthouse", "Labs"]).length, 2));
+  it('return 0 for the length of ["Hello"]',
+    () => assert.strictEqual(tail(["Hello"]).length, 0));
+  it('return "[]" for the "[]"',
+    () => assert.strictEqual(tail([]).length, 0));
+});
