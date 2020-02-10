@@ -1,5 +1,3 @@
-//07
-
 const assertArraysEqual = require('./assertArraysEqual');
 
 // Create a map function that takes in an Array and a Callback Function, and returns a new array based on the results of the callback.
