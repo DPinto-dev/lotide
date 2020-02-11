@@ -7,12 +7,10 @@ const eqObjects = function(object1, object2) {
       // check if it's an object and recursively call the function
       if (typeof object1[key] === 'object' && object1[key] !== null) {
         if (!eqObjects(object1[key], object2[key])) {
-          return false
+          return false;
         }
-      }
-      // Base Case: single level object
-      else if (object1[key] !== object2[key]) {
-        return false
+      } else if (object1[key] !== object2[key]) { // Base Case: single level object
+        return false;
       }
     }
   }

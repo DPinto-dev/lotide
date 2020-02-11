@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
-  "version": "0.1.0",
-  "description": "",
-  "main": "assertArraysEqual.js",
+  "name": "@diogopinto/lotide",
+  "version": "1.0.1",
+  "description": "Lotide a mini-clone of the Lodash library. Project from Lighthouse Labs Bootcamp",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/DPintoLL/lotide.git"
   },
-  "author": "",
+  "author": "Diogo Pinto <diogosp4m@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DPintoLL/lotide/issues"
